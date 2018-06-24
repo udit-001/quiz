@@ -167,6 +167,7 @@ function nextQues(){
             localStorage.setItem("score", score);
             document.location.replace("score.html");                        
         });
+        document.getElementById("next").click();
     }
 
     else{
