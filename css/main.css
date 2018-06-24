@@ -1,0 +1,27 @@
+body{
+    background-color: #17a2b8;
+}
+#next{
+    visibility: hidden;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.stopwatch{
+    flex : 1;
+}
+#timer{
+    background: url('../img/stopwatch.png');
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 8px;
+}
+.scoreBoard {
+    flex : 1;
+}
+.heading{
+    flex : 2;
+}
