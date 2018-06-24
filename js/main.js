@@ -165,7 +165,7 @@ function nextQues(){
             document.getElementById("click").play();
             localStorage.setItem("correctAns", correctAns);
             localStorage.setItem("score", score);
-            document.location.replace("/score.html");                        
+            document.location.replace("score.html");                        
         });
     }
 
