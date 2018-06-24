@@ -131,10 +131,10 @@ var myQuestions = [
         answers: [
             'Neil Armstrong',
             'Rakesh Sharma',
-            'Yuri Gargin',
+            'Yuri Gagarin',
             'Alexei Leonov'
         ],
-        correctAnswer: 'Yuri Gargin'
+        correctAnswer: 'Yuri Gagarin'
     }
 ];
 
