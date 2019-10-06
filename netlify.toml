@@ -1,1 +1,3 @@
-/ /start.html    200
+[[redirects]]
+  from = "/"
+  to = "/start.html"
