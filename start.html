@@ -1,33 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <title>Trivia Quiz</title>
     <meta name="theme-color" content="#17a2b8">
     <link rel="stylesheet" href="css/main.css">
     <style>
-        .container{
+        .container {
             height: 100vh;
         }
     </style>
 </head>
+
 <body>
     <div class="container d-flex flex-column align-items-center justify-content-center">
-            <div class="p-2">
-                <h1 class="text-center text-light">Trivia Quiz</h1>
+        <div class="p-2">
+            <h1 class="text-center text-light">Trivia Quiz</h1>
+        </div>
+        <form id="quiz" method="POST" action="" class="d-flex flex-column align-items-center justify-content-center">
+            <div class="form-group">
+                <label for="category" class="text-light">Category</label>
+                <select class="form-control" name="category" id="category" required>
+                    <option value="" disabled selected>Select Category</option>
+                </select>
             </div>
-            <div class="p-2">
-                    <button class="btn btn-success btn-lg" id="start">Play</button>
+
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="difficulty" class="text-light">Difficulty</label>
+                    <select class="form-control" name="difficulty" id="difficulty" required>
+                        <option value="" disabled selected>Select Difficulty</option>
+                        <option value="any">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="type" class="text-light">Type</label>
+                    <select class="form-control" name="type" id="type" required>
+                        <option value="" disabled selected>Select Type</option>
+                        <option value="any">Any Type</option>
+                        <option value="multiple">Multiple</option>
+                        <option value="boolean">True/False</option>
+                    </select>
+                </div>
             </div>
+
+            <button class="btn btn-success btn-lg" id="start" type="submit">Play</button>
+        </form>
     </div>
     <script>
-        document.getElementById("start").addEventListener("click", startQuiz);
-        function startQuiz(){
+        var categories = {
+            "Any Category": "any",
+            "General Knowledge": "9",
+            "Entertainment: Books": "10",
+            "Entertainment: Film": "11",
+            "Entertainment: Music": "12",
+            "Entertainment: Musicals & Theatres": "13",
+            "Entertainment: Television": "14",
+            "Entertainment: Video Games": "15",
+            "Entertainment: Board Games": "16",
+            "Science & Nature": "17",
+            "Science: Computers": "18",
+            "Science: Mathematics": "19",
+            "Mythology": "20",
+            "Sports": "21",
+            "Geography": "22",
+            "History": "23",
+            "Politics": "24",
+            "Art": "25",
+            "Celebrities": "26",
+            "Animals": "27",
+            "Vehicles": "28",
+            "Entertainment: Comics": "29",
+            "Science: Gadgets": "30",
+            "Entertainment: Japanese Anime & Manga": "31",
+            "Entertainment: Cartoon & Animations": "32"
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            category = document.getElementById("category");
+            for (let [key, value] of Object.entries(categories)) {
+                o = document.createElement("option");
+                o.value = value;
+                o.innerText = key;
+                category.appendChild(o);
+            }
+            trivia_category = localStorage.getItem("category"); 
+            trivia_difficulty = localStorage.getItem("difficulty"); 
+            trivia_type = localStorage.getItem("type"); 
+            if (trivia_category !== null){
+                document.querySelector(`[name=category] > [value=${trivia_category}]`).selected = true;
+            }
+            if (trivia_difficulty !== null){
+                document.querySelector(`[name=difficulty] > [value=${trivia_difficulty}]`).selected = true;
+            }
+            if (trivia_type !== null){
+                document.querySelector(`[name=type] > [value=${trivia_type}]`).selected = true;
+            }
+        });
+        document.getElementById("quiz").addEventListener("submit", startQuiz);
+
+        function startQuiz(e) {
+            e.preventDefault();
+            cat = document.getElementById("category").value;
+            diff = document.getElementById("difficulty").value;
+            tv_type = document.getElementById("type").value;
+            localStorage.setItem("category", cat);
+            localStorage.setItem("difficulty", diff);
+            localStorage.setItem("type", tv_type);
             document.location.replace("index.html");
+            return false;
         }
     </script>
 </body>
+
 </html>
