@@ -96,13 +96,13 @@
             trivia_difficulty = localStorage.getItem("difficulty"); 
             trivia_type = localStorage.getItem("type"); 
             if (trivia_category !== null){
-                document.querySelector(`[name=category] > [value=${trivia_category}]`).selected = true;
+                document.querySelector(`[name=category] > [value='${trivia_category}']`).selected = true;
             }
             if (trivia_difficulty !== null){
-                document.querySelector(`[name=difficulty] > [value=${trivia_difficulty}]`).selected = true;
+                document.querySelector(`[name=difficulty] > [value='${trivia_difficulty}']`).selected = true;
             }
             if (trivia_type !== null){
-                document.querySelector(`[name=type] > [value=${trivia_type}]`).selected = true;
+                document.querySelector(`[name=type] > [value='${trivia_type}']`).selected = true;
             }
         });
         document.getElementById("quiz").addEventListener("submit", startQuiz);
