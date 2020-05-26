@@ -201,7 +201,6 @@ document.addEventListener('DOMContentLoaded',
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(request.responseText);
                     myQuestions = data.results;
-                    console.log(myQuestions);
                     nextQues();
                 }
             } catch (err) {
