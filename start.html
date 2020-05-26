@@ -109,12 +109,17 @@
 
         function startQuiz(e) {
             e.preventDefault();
-            cat = document.getElementById("category").value;
-            diff = document.getElementById("difficulty").value;
-            tv_type = document.getElementById("type").value;
-            localStorage.setItem("category", cat);
-            localStorage.setItem("difficulty", diff);
-            localStorage.setItem("type", tv_type);
+            trivia_category = document.getElementById("category").value;
+            trivia_category_name = document.querySelector(`[name=category]>[value=${trivia_category}]`).innerText;
+            trivia_difficulty = document.getElementById("difficulty").value;
+            trivia_type = document.getElementById("type").value;
+            localStorage.setItem("category", trivia_category);
+            localStorage.setItem("difficulty", trivia_difficulty);
+            localStorage.setItem("type", trivia_type);
+            sessionStorage.setItem("category", trivia_category);
+            sessionStorage.setItem("category_name", trivia_category_name);
+            sessionStorage.setItem("difficulty", trivia_difficulty);
+            sessionStorage.setItem("type", trivia_type);
             document.location.replace("/quiz");
             return false;
         }

@@ -180,20 +180,23 @@ document.getElementById("next").addEventListener("click", nextQues);
 
 document.addEventListener('DOMContentLoaded',
     function () {
+        quiz_name = document.getElementById("quiz-name");
+        trivia_category_name = sessionStorage.getItem("category_name");
+        quiz_name.innerText = trivia_category_name;
         const request = new XMLHttpRequest();
-        cat = localStorage.getItem("category")
-        diff = localStorage.getItem("difficulty");
-        tv_type = localStorage.getItem("type");
-        if (cat === "any") {
-            cat = "";
+        trivia_category = sessionStorage.getItem("category");
+        trivia_difficulty = sessionStorage.getItem("difficulty");
+        trivia_type = sessionStorage.getItem("type");
+        if (trivia_category === "any") {
+            trivia_category = "";
         }
-        if (diff === "any") {
-            diff = "";
+        if (trivia_difficulty === "any") {
+            trivia_difficulty = "";
         }
-        if (tv_type === "any") {
-            tv_type = "";
+        if (trivia_type === "any") {
+            trivia_type = "";
         }
-        url = 'https://opentdb.com/api.php?amount=10&category=' + cat + '&difficulty=' + diff + '&type=' + tv_type;
+        url = `https://opentdb.com/api.php?amount=10&category=${trivia_category}&difficulty=${trivia_difficulty}&type=${trivia_type}`;
         request.open('GET', url);
 
         request.onreadystatechange = function () {
