@@ -4,8 +4,8 @@
   force = true
 
 [[redirects]]
-  from = "/index.html"
-  to = "/quiz"
+  from = "/quiz"
+  to = "/index.html"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
