@@ -110,7 +110,7 @@
         function startQuiz(e) {
             e.preventDefault();
             trivia_category = document.getElementById("category").value;
-            trivia_category_name = document.querySelector(`[name=category]>[value=${trivia_category}]`).innerText;
+            trivia_category_name = document.querySelector(`[name=category]>[value='${trivia_category}']`).innerText;
             trivia_difficulty = document.getElementById("difficulty").value;
             trivia_type = document.getElementById("type").value;
             localStorage.setItem("category", trivia_category);
