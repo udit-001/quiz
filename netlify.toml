@@ -2,3 +2,10 @@
   from = "/"
   to = "/start"
   force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/quiz"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
