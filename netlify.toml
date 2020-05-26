@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/"
-  to = "/start.html"
+  to = "/start"
   force = true
